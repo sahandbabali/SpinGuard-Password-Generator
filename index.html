@@ -41,32 +41,41 @@
         </div>
     </nav>
     <div class="container mt-5">
-        <h2>Signup</h2>
-        <form>
-            <div class="mb-3">
-                <label for="username" class="form-label">Username</label>
-                <input type="text" class="form-control" id="username" placeholder="Enter your username" required>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <h2>Signup</h2>
+                <form>
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="username" placeholder="Enter your username"
+                            required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <div class="input-group">
+                            <input type="password" class="form-control" id="password" placeholder="Enter your password"
+                                required>
+                            <button type="button" class="btn btn-outline-secondary" id="generatePassword"
+                                data-bs-toggle="modal" data-bs-target="#generatorModal">Generate</button>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="confirmPassword" class="form-label">Confirm Password</label>
+                        <input type="password" class="form-control" id="confirmPassword"
+                            placeholder="Confirm your password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Signup</button>
+                </form>
             </div>
-            <div class="mb-3">
-                <label for="email" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
-            </div>
-            <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <div class="input-group">
-                    <input type="password" class="form-control" id="password" placeholder="Enter your password"
-                        required>
-                    <button type="button" class="btn btn-outline-secondary" id="generatePassword" data-bs-toggle="modal"
-                        data-bs-target="#generatorModal">Generate</button>
-                </div>
-            </div>
-            <div class="mb-3">
-                <label for="confirmPassword" class="form-label">Confirm Password</label>
-                <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password"
-                    required>
-            </div>
-            <button type="submit" class="btn btn-primary">Signup</button>
-        </form>
+
+            <div class="col-md-3"></div>
+
+        </div>
     </div>
 
 
@@ -388,7 +397,7 @@
 
 
                 // change the text context to "Copy password"
-                document.getElementById('DropBalls').textContent = "Copy password";
+                document.getElementById('DropBalls').textContent = "Copy Password";
             } else {
 
                 // Copy the generated password
@@ -406,7 +415,7 @@
         // Creates balls in the wheel by dragging the mouse while clicking
         function mouseDragged() {
             if (mouseButton === LEFT) {
-                let radius = 20;
+                let radius = 15;
                 let centerX = width / 2;
                 let centerY = height / 2 - 150;
 
