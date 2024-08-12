@@ -127,7 +127,7 @@
         let leftSide;
         let rightSide;
 
-
+        let textToDisplay = ""
 
         // p5js setup function
         function setup() {
@@ -329,10 +329,18 @@
             textSize(16);
             textAlign(CENTER, CENTER);
             let yPos = height - 20;
-            let textToDisplay = charactersOnTray.map(item => item.character).join(' ');
+            textToDisplay = charactersOnTray.map(item => item.character).join(' ');
             text(textToDisplay, width / 2, yPos);
             pop();
         }
+
+
+
+
+
+
+
+
 
 
 
@@ -346,7 +354,9 @@
 
         // Clears the bottom segment of the wheel 
         document.getElementById('DropBalls').addEventListener('click', function () {
-            if (rects.length > 0) {
+
+            // if there is no geenrated password start generating (drop the balls)
+            if (!textToDisplay) {
                 console.log("dropping");
 
                 let maxYRect = rects.reduce((maxRect, currentRect) => {
@@ -374,6 +384,21 @@
 
                 Matter.Body.setAngularVelocity(compositeBody, 0);
                 Matter.Body.setInertia(compositeBody, Infinity);
+
+
+
+                // change the text context to "Copy password"
+                document.getElementById('DropBalls').textContent = "Copy password";
+            } else {
+
+                // Copy the generated password
+
+                let textToCopy = textToDisplay.replace(/\s+/g, '');
+                navigator.clipboard.writeText(textToCopy).then(() => {
+                    console.log("Password copied to clipboard: " + textToCopy);
+                }).catch(err => {
+                    console.error('Failed to copy text: ', err);
+                });
             }
         });
 
@@ -436,6 +461,8 @@
         function resetSketch() {
             Matter.World.clear(world);
             circles = [];
+            textToDisplay = ""
+            document.getElementById('DropBalls').textContent = "Generate Password";
             setup();
         }
 
