@@ -21,7 +21,7 @@
 
     <style>
         #canvasBox {
-            height: 70vh;
+            height: 65vh;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -30,6 +30,29 @@
         #canvasBox canvas {
             height: 100% !important;
             width: auto !important;
+        }
+
+        /* generate password btn animation */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(0, 128, 0, 0.7);
+            }
+
+            70% {
+                transform: scale(1.1);
+                box-shadow: 0 0 10px 10px rgba(0, 128, 0, 0);
+            }
+
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(0, 128, 0, 0);
+            }
+        }
+
+        .pulse-button {
+            animation: pulse 3s infinite;
+            animation-delay: 3s;
         }
     </style>
 </head>
@@ -60,8 +83,9 @@
                         <div class="input-group">
                             <input type="password" class="form-control" id="password" placeholder="Enter your password"
                                 required>
-                            <button type="button" class="btn btn-success" id="generatePassword" data-bs-toggle="modal"
-                                data-bs-target="#generatorModal">Generate</button>
+                            <button type="button" class="btn btn-success pulse-button" id="generatePassword"
+                                data-bs-toggle="modal" data-bs-target="#generatorModal">Generate</button>
+
                         </div>
                     </div>
                     <div class="mb-3">
@@ -95,7 +119,9 @@
                 </div>
                 <div class="modal-body">
                     <div id="canvasBox"></div>
-                    1- Drag your mouse inside the wheel to add balls | 2- Press Spin/Stop | 3- Generate Password
+                    <p>1. Drag your mouse inside the wheel to add characters | 2. Press Spin/Stop to mix them | 3. Click
+                        Generate Password</p>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary btn-lg" id="spinButton">Spin</button>
