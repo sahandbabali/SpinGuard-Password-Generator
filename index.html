@@ -60,8 +60,8 @@
                         <div class="input-group">
                             <input type="password" class="form-control" id="password" placeholder="Enter your password"
                                 required>
-                            <button type="button" class="btn btn-outline-secondary" id="generatePassword"
-                                data-bs-toggle="modal" data-bs-target="#generatorModal">Generate</button>
+                            <button type="button" class="btn btn-success" id="generatePassword" data-bs-toggle="modal"
+                                data-bs-target="#generatorModal">Generate</button>
                         </div>
                     </div>
                     <div class="mb-3">
@@ -95,7 +95,7 @@
                 </div>
                 <div class="modal-body">
                     <div id="canvasBox"></div>
-
+                    1- Drag your mouse inside the wheel to add balls | 2- Press Spin/Stop | 3- Generate Password
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary btn-lg" id="spinButton">Spin</button>
@@ -335,9 +335,9 @@
             // Draw characters at the bottom of the canvas
             push();
             fill(0);
-            textSize(16);
+            textSize(20);
             textAlign(CENTER, CENTER);
-            let yPos = height - 20;
+            let yPos = height - 40;
             textToDisplay = charactersOnTray.map(item => item.character).join(' ');
             text(textToDisplay, width / 2, yPos);
             pop();
